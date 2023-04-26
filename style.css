@@ -116,6 +116,16 @@ svg {
 
 /* utilities classes*/
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .text-primary-400 {
   color: var(--clr-primary-400);
 }
@@ -240,4 +250,46 @@ body {
 .button:hover,
 .button:focus-visible {
   opacity: 0.75;
+}
+
+/* Navigation */
+
+.primary-header {
+  margin-top: var(--size-700);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 50em) {
+  .primary-nav {
+    display: none;
+
+    position: fixed;
+    inset: 7rem var(--size-400) auto;
+    background: var(--clr-neutral-900);
+  }
+
+  .primary-nav[data-visible] {
+    display: block;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0.4em;
+  }
+
+  .mobile-nav-toggle .icon-close {
+    display: none;
+  }
 }
